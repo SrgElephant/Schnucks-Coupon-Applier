@@ -9,11 +9,13 @@
 * CronJob
 
 ## Python
+  pip is required to install Selenium:
+  
   `sudo apt update`
   
   `sudo apt install python3-venv python3-pip`
   
-  To install for other operating systems:
+  To install pip for other operating systems:
   
   https://packaging.python.org/guides/installing-using-linux-tools/
   
