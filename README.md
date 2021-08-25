@@ -9,9 +9,9 @@
 * CronJob
 
 ## Python
-  `sudo apt update
+  `sudo apt update`
   
-  sudo apt install python3-venv python3-pip`
+  `sudo apt install python3-venv python3-pip`
   
   To install for other operating systems:
   
