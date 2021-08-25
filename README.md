@@ -1,10 +1,10 @@
 # Schnucks-Coupon-Applier
 
-  This program will apply all of the digital coupons to a Schnucks account. Setup assumes Ubuntu as the OS, and consists of:
+  This program will apply all of the digital coupons to a Schnucks account. Assuming Ubuntu as the OS, and consists of:
 
-* Python
+* Python Setup
 
-* CronJob
+* CronJob Setup
 
 ## Python
   pip is required to install Selenium:
