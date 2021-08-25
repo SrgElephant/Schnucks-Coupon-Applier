@@ -1,0 +1,1 @@
+# Schnucks-Coupon-Applier
