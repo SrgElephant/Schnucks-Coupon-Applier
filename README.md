@@ -21,5 +21,7 @@
   
   `pip3 install selenium`
 ## Selenium
+  Create a folder to hold Selenium's dependances.
+  Download and place the required files for your broswer.
   https://www.selenium.dev/documentation/getting_started/installing_browser_drivers/
 ## CronJob
