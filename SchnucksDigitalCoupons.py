@@ -26,4 +26,10 @@ if any(error_message in e.text for e in errors):
 else:
     print("Login successful")
 
+# Navigate to the coupons page
+driver.get("https://nourish.schnucks.com/web-ext/coupons")
+unclippedCoupons = driver.find_elements_by_class_name('.schnucks-red-bg')
+for i in range(0,len(unclippedCoupons)):
+    unclippedCoupons[i].click();
+
 driver.close()
