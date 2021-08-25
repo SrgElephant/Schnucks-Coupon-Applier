@@ -9,6 +9,7 @@
 ## Python
   `sudo apt update
   sudo apt install python3-venv python3-pip`
+  
   To install for other operating systems: https://packaging.python.org/guides/installing-using-linux-tools/
   `pip3 install selenium`
 ## Selenium
