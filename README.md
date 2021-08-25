@@ -4,8 +4,6 @@
 
 * Python
 
-* Selenium
-
 * CronJob
 
 ## Python
@@ -20,8 +18,8 @@
   https://packaging.python.org/guides/installing-using-linux-tools/
   
   `pip3 install selenium`
-## Selenium
-  Create a folder to hold Selenium's dependances.
-  Download and place the required files for your broswer.
-  https://www.selenium.dev/documentation/getting_started/installing_browser_drivers/
+  
+  `pip3 install webdriver-manager`
+  
+  https://pypi.org/project/webdriver-manager/
 ## CronJob
