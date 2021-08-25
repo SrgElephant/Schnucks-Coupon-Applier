@@ -2,11 +2,11 @@
 
   This program will apply all of the digital coupons to a Schnucks account. Setup assumes Ubuntu as the OS, and consists of:
 
-*Python
+* Python
 
-*Selenium
+* Selenium
 
-*CronJob
+* CronJob
 
 ## Python
   `sudo apt update
