@@ -28,8 +28,18 @@ else:
 
 # Navigate to the coupons page
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
+
+# Get the current sum of coupons
+WebElement couponSavings = driver.findElement(By.cssSelector("link-text bold-font"));
+previousSavings = couponSavings.getText();
+
+# Find all the unclipped coupons and click them
 unclippedCoupons = driver.find_elements_by_class_name('.schnucks-red-bg')
 for i in range(0,len(unclippedCoupons)):
     unclippedCoupons[i].click();
+
+# Update the impact of the coupons
+driver.navigate().refresh();
+currentSavings = couponSavings.getText();
 
 driver.close()
