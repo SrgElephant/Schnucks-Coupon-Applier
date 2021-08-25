@@ -3,7 +3,9 @@
   This program will apply all of the digital coupons to a Schnucks account. Setup assumes Ubuntu as the OS, and consists of:
 
 *Python
+
 *Selenium
+
 *CronJob
 
 ## Python
