@@ -1,11 +1,11 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
-import time
+import time, sys
 
 # TODO provide credentials
-SchnucksAcctEmail = ""
-SchnucksAcctPassword =  ""
+SchnucksAcctEmail = "abc@gmail.com"
+SchnucksAcctPassword =  "abc"
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
@@ -16,10 +16,13 @@ driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
 driver.find_element_by_class_name('login-button').click()
 
 # Wait for the page to load
-time.sleep(10);
-errors = driver.find_elements_by_class_name("login-error")
-if (len(errors) > 0):
+time.sleep(5);
+errorLogin = driver.find_elements_by_class_name("login-error")
+errorEmail = driver.find_elements_by_class_name("schnucks-red")
+if (len(errorLogin) + len(errorEmail) > 0):
     print("Login failed")
+    driver.close()
+    sys.exit()
 else:
     print("Login successful")
 
