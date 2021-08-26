@@ -1,6 +1,7 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
+import time
 
 # TODO provide credentials
 SchnucksAcctEmail = ""
@@ -14,14 +15,11 @@ driver.find_element_by_id('logonId').send_keys(SchnucksAcctEmail)
 driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
 driver.find_element_by_class_name('login-button').click()
 
-# Wait until the webpage redirects on successful login
-WebDriverWait(driver=driver, timeout=10).until(
-    lambda x: x.execute_script("return document.readyState === 'complete'")
-)
-
-error_message = "Sorry, that login is invalid. Make sure everything is correct and try again. If the problem continues, contact Customer Care."
+# Wait for the page to load
+time.sleep(10);
 errors = driver.find_elements_by_class_name("login-error")
-if any(error_message in e.text for e in errors):
+
+if (len(errors) > 0):
     print("Login failed")
 else:
     print("Login successful")
