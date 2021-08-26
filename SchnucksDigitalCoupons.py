@@ -18,7 +18,6 @@ driver.find_element_by_class_name('login-button').click()
 # Wait for the page to load
 time.sleep(10);
 errors = driver.find_elements_by_class_name("login-error")
-
 if (len(errors) > 0):
     print("Login failed")
 else:
@@ -30,15 +29,19 @@ driver.get("https://nourish.schnucks.com/web-ext/coupons")
 # Get the current sum of coupons
 WebElement couponSavings = driver.findElement(By.cssSelector("link-text bold-font"));
 previousSavings = couponSavings.getText();
+print("Before: " + previousSavings)
 
 # Find all the unclipped coupons and click them
 unclippedCoupons = driver.find_elements_by_class_name('.schnucks-red-bg')
-for i in range(0,len(unclippedCoupons)):
+numOfUnclippedCoupons = len(unclippedCoupons)
+print("Number of coupons to be clicked: " + numOfUnclippedCoupons)
+for i in range(0,numOfUnclippedCoupons):
     unclippedCoupons[i].click();
 
 # Update the impact of the coupons
 driver.navigate().refresh();
 currentSavings = couponSavings.getText();
+print("After: " + currentSavings)
 
 # Send email of before / after coupon values
 driver.close()
