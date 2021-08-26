@@ -3,15 +3,15 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 
 # TODO provide credentials
-acctEmail = ""
-acctPassword =  ""
+SchnucksAcctEmail = ""
+SchnucksAcctPassword =  ""
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
-# Navigate to the page and enter provided credentials
+# Navigate to the page and Schnucks credentials
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
-driver.find_element_by_id('logonId').send_keys(acctEmail)
-driver.find_element_by_id('password').send_keys(acctPassword)
+driver.find_element_by_id('logonId').send_keys(SchnucksAcctEmail)
+driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
 driver.find_element_by_class_name('login-button').click()
 
 # Wait until the webpage redirects on successful login
@@ -42,4 +42,5 @@ for i in range(0,len(unclippedCoupons)):
 driver.navigate().refresh();
 currentSavings = couponSavings.getText();
 
+# Send email of before / after coupon values
 driver.close()
