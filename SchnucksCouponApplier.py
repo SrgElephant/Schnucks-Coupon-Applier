@@ -49,12 +49,14 @@ print("Number of coupons to be clicked: " + str(numOfUnclippedCoupons - 1))
 for i in range(1,numOfUnclippedCoupons):
     unclippedCoupons[i].click();
 
-# Tested
-
 # Update the impact of the coupons
-driver.navigate().refresh();
-currentSavings = couponSavings.getText();
+driver.refresh()
+time.sleep(5);
+couponSavings = driver.find_element_by_css_selector("div.link-text");
+currentSavings = couponSavings.text
 print("After: " + currentSavings)
 
 # Send email of before / after coupon values
-driver.close()
+# driver.close()
+
+# Tested
