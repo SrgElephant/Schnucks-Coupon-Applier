@@ -9,7 +9,7 @@ SchnucksAcctPassword =  "abc"
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
-# Navigate to the page and Schnucks credentials
+# Navigate to the page and insert Schnucks credentials
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
 driver.find_element_by_id('logonId').send_keys(SchnucksAcctEmail)
 driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
@@ -17,9 +17,12 @@ driver.find_element_by_class_name('login-button').click()
 
 # Wait for the page to load
 time.sleep(5);
+
+# Types of errors
 errorLogin = driver.find_elements_by_class_name("login-error")
 errorEmail = driver.find_elements_by_class_name("schnucks-red")
 if (len(errorLogin) + len(errorEmail) > 0):
+    # TODO send email function here
     print("Login failed")
     driver.close()
     sys.exit()
