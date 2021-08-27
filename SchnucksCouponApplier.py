@@ -6,11 +6,17 @@ import time, sys
 SchnucksAcctEmail = "abc@gmail.com"
 SchnucksAcctPassword =  "abc"
 
+# TODO set sendEmails to True if desired; must provide email account credentials
+sendEmails = False
+emailAddress = "abc@gmail.com"
+emailPassword =  "abc"
+
 def getCouponTotal(driver, status):
     driver.refresh()
     time.sleep(5)
     couponSavings = driver.find_element_by_css_selector("div.link-text").text;
     print(status + ": " + couponSavings)
+    return couponSavings
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
@@ -38,24 +44,22 @@ else:
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
 
 # Get current value of coupons
-getCouponTotal(driver, "Before")
-
+valueBeforeClicking = getCouponTotal(driver, "Before")
 
 # Find all the unclipped coupons and click them
 unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
 numOfUnclippedCoupons = len(unclippedCoupons)
 
 # '- 1' due to the hidden button
-print("Number of coupons to be clicked: " + str(numOfUnclippedCoupons - 1))
+print("Number of coupons clicked: " + str(numOfUnclippedCoupons - 1))
 
 # start at 1 to ignore the hidden button
 for i in range(1,numOfUnclippedCoupons):
     unclippedCoupons[i].click()
 
 # Update the impact of the coupons
-getCouponTotal(driver, "After")
+valueAfterClicking = getCouponTotal(driver, "After")
 
 # Send email of before / after coupon values
-# driver.close()
 
-# Tested
+# driver.close()
