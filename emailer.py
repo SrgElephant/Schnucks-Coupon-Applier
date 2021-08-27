@@ -4,50 +4,36 @@ import smtplib, ssl
 sendEmails = True
 emailAddress = "abc"
 emailPassword =  "abc"
-smtp_server = "smtp.gmail.com"
+smtp_server = "smtp.gmail.com:465"
 
 header = "Schnucks Coupon Applier\n"
-errorMail = "Error occured while trying to login."
-beforeMail = "Value of coupons before: "
-afterMail = "Value of coupons after: "
+errorOccurred = "Error occured while trying to login."
+beforeCoupons = "Value of coupons before: "
+afterCoupons = "\nValue of coupons after: "
+footnote = "\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n\n"
 
 before = "$69"
 after = "$5645634"
 
-port = 587 # starttls
-context = ssl.create_default_context()
 
-def sendErrorEmail(sendEmailBool):
+def sendEmail(sendSuccessEmail = False):
     if(sendEmails):
-        print("Sending Error")
+        if(sendSuccessEmail):
+            print("Sending Success")
+            body = header + beforeCoupons + before + afterCoupons + after + footnote
+        else:
+            body = header + errorOccurred + footnote
         try:
-            server = smtplib.SMTP(smtp_server,port)
-            server.ehlo()
-            server.starttls(context=context)
+            server = smtplib.SMTP_SSL(smtp_server)
             server.login(emailAddress, emailPassword)
-            server.sendmail(emailAddress, emailAddress, header + errorMail)
+            server.sendmail(emailAddress, emailAddress, body)
         except Exception as e:
             print(e)
         finally:
+            print("Sent " + body)
             server.quit()
     else:
         print("Not Sending")
         
-def sendResultEmail(sendEmailBool, before, after):
-    if(sendEmails):
-        print("Sending Result")
-        try:
-            server = smtplib.SMTP(smtp_server,port)
-            server.ehlo()
-            server.starttls(context=context)
-            server.login(emailAddress, emailPassword)
-            server.sendmail(emailAddress, emailAddress, header + beforeMail + before + "\n" + afterMail + after)
-        except Exception as e:
-            print(e)
-        finally:
-            server.quit()
-    else:
-        print("Not Sending")
-
-sendErrorEmail(sendEmails)
-sendResultEmail(sendEmails, before, after)
+sendEmail()
+sendEmail(True)
