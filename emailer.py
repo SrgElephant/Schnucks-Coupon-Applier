@@ -15,11 +15,9 @@ footnote = "\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n\n"
 before = "$69"
 after = "$5645634"
 
-
 def sendEmail(sendSuccessEmail = False):
     if(sendEmails):
         if(sendSuccessEmail):
-            print("Sending Success")
             body = header + beforeCoupons + before + afterCoupons + after + footnote
         else:
             body = header + errorOccurred + footnote
@@ -30,7 +28,7 @@ def sendEmail(sendSuccessEmail = False):
         except Exception as e:
             print(e)
         finally:
-            print("Sent " + body)
+            print("Sent\n" + body)
             server.quit()
     else:
         print("Not Sending")
