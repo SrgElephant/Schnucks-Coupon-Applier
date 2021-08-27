@@ -1,6 +1,5 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
 import time, sys
 
 # TODO provide credentials
