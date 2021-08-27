@@ -32,10 +32,13 @@ else:
 # Navigate to the coupons page
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
 
-# Get the current sum of coupons
-WebElement couponSavings = driver.findElement(By.cssSelector("link-text bold-font"));
-previousSavings = couponSavings.getText();
-print("Before: " + previousSavings)
+# Wait for the page to load
+time.sleep(5);
+couponSavings = driver.find_element_by_css_selector("div.link-text");
+previousSavings = couponSavings.text;
+print("Before " + previousSavings)
+
+# Tested
 
 # Find all the unclipped coupons and click them
 unclippedCoupons = driver.find_elements_by_class_name('.schnucks-red-bg')
