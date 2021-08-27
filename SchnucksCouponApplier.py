@@ -42,10 +42,13 @@ print("Before " + previousSavings)
 # Find all the unclipped coupons and click them
 unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
 numOfUnclippedCoupons = len(unclippedCoupons)
-print("Number of coupons to be clicked: " + str(numOfUnclippedCoupons))
-for i in range(0,numOfUnclippedCoupons):
-    if unclippedCoupons[i].is_displayed():
-        unclippedCoupons[i].click();
+
+# '- 1' due to the hidden button
+print("Number of coupons to be clicked: " + str(numOfUnclippedCoupons - 1))
+
+# start at 1 to ignore the hidden button
+for i in range(1,numOfUnclippedCoupons):
+    unclippedCoupons[i].click();
 
 # Tested
 
