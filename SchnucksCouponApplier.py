@@ -38,14 +38,16 @@ couponSavings = driver.find_element_by_css_selector("div.link-text");
 previousSavings = couponSavings.text;
 print("Before " + previousSavings)
 
-# Tested
 
 # Find all the unclipped coupons and click them
-unclippedCoupons = driver.find_elements_by_class_name('.schnucks-red-bg')
+unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
 numOfUnclippedCoupons = len(unclippedCoupons)
-print("Number of coupons to be clicked: " + numOfUnclippedCoupons)
+print("Number of coupons to be clicked: " + str(numOfUnclippedCoupons))
 for i in range(0,numOfUnclippedCoupons):
-    unclippedCoupons[i].click();
+    if unclippedCoupons[i].is_displayed():
+        unclippedCoupons[i].click();
+
+# Tested
 
 # Update the impact of the coupons
 driver.navigate().refresh();
