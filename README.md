@@ -1,14 +1,20 @@
 # Schnucks-Coupon-Applier
 
-  This program will apply all of the digital coupons to a Schnucks account. Assuming Ubuntu as the OS, and consists of:
+  This program automates applying all of the digital coupons to a Schnucks account. Includes opening the web broswer, logging in, clipping coupons, and sending an email with the updated coupon value. Created with Ubuntu as the OS. Two parts to this project:
 
 * Python Setup
 
 * CronJob Setup
 
+Alternatively, manually visiting the website would be launching the terminal and running
+  
+  `let btns = document.querySelectorAll(".schnucks-red-bg");`
+  
+   `btns.forEach(btns => btns.click());`
+
 ## Python
   
-  pip is required to install Selenium:
+  pip is required to install Selenium as well as the webdriver manager:
   
   `sudo apt update`
   
