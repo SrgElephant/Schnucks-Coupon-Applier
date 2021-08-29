@@ -3,13 +3,13 @@ from webdriver_manager.firefox import GeckoDriverManager
 import time, sys, smtplib, ssl
 
 # TODO provide credentials
-SchnucksAcctEmail = "abc@gmail.com"
-SchnucksAcctPassword =  "abc"
+SchnucksAcctEmail = "SchnucksAcct@gmail.com"
+SchnucksAcctPassword =  "SchnucksAcct"
 
 # TODO set sendEmails to True if desired; must provide email account details
 sendEmails = True
 emailAddress = "sender@gmail.com"
-emailPassword =  "senderPW@"
+emailPassword =  "senderPW"
 emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
 smtp_server = "smtp.gmail.com:465"
 
