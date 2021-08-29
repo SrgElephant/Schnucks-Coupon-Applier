@@ -1,15 +1,18 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
+from Emailer import sendEmail
 import time, sys
 
 # TODO provide credentials
 SchnucksAcctEmail = "abc@gmail.com"
 SchnucksAcctPassword =  "abc"
 
-# TODO set sendEmails to True if desired; must provide email account credentials
-sendEmails = False
-emailAddress = "abc@gmail.com"
-emailPassword =  "abc"
+# TODO set sendEmails to True if desired; must provide email account details
+sendEmails = True
+emailAddress = "sender@gmail.com"
+emailPassword =  "senderPW@gmail.com"
+emailAddressReceiver = "receiver@gmail.com"
+smtp_server = "smtp.gmail.com:465"
 
 def getCouponTotal(driver, status):
     driver.refresh()
@@ -33,7 +36,7 @@ time.sleep(5);
 errorLogin = driver.find_elements_by_class_name("login-error")
 errorEmail = driver.find_elements_by_class_name("schnucks-red")
 if (len(errorLogin) + len(errorEmail) > 0):
-    # TODO send email function here
+    sendEmail(False)
     print("Login failed")
     driver.close()
     sys.exit()
@@ -61,5 +64,6 @@ for i in range(1,numOfUnclippedCoupons):
 valueAfterClicking = getCouponTotal(driver, "After")
 
 # Send email of before / after coupon values
+sendEmail(True)
 
-# driver.close()
+driver.close()
