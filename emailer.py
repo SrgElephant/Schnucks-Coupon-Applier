@@ -2,15 +2,16 @@ import smtplib, ssl
 # from sca import sendEmails, emailAddress, emailPassword, smtp server
 
 sendEmails = True
-emailAddress = "abc"
-emailPassword =  "abc"
+emailAddress = "sender@gmail.com"
+emailPassword =  "senderPW"
 smtp_server = "smtp.gmail.com:465"
+emailAddressReceiver = "receiver@gmail.com"
 
 header = "Subject: Schnucks Coupon Applier\n"
-errorOccurred = "\nError occured while trying to login."
+errorOccurred = "\nError occured while trying to login. Please make sure credntials are correct and the script is up to date."
 beforeCoupons = "\nValue of coupons before: "
 afterCoupons = "\nValue of coupons after: "
-footnote = "\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
+footnote = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
 
 before = "$69"
 after = "$5645634"
@@ -24,7 +25,7 @@ def sendEmail(sendSuccessEmail = False):
         try:
             server = smtplib.SMTP_SSL(smtp_server)
             server.login(emailAddress, emailPassword)
-            server.sendmail(emailAddress, emailAddress, body)
+            server.sendmail(emailAddress, emailAddressReceiver, body)
         except Exception as e:
             print(e)
         finally:
@@ -32,6 +33,6 @@ def sendEmail(sendSuccessEmail = False):
             server.quit()
     else:
         print("Not Sending")
-        
+
 sendEmail()
 sendEmail(True)
