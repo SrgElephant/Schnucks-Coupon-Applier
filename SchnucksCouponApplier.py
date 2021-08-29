@@ -6,20 +6,20 @@ import time, sys, smtplib, ssl
 SchnucksAcctEmail = "SchnucksAcct@gmail.com"
 SchnucksAcctPassword =  "SchnucksAcct"
 
-# TODO set sendEmails to True if desired; must provide email account details
-sendEmails = True
+# OPTIONAL TODO set sendEmails to True if desired; must provide email account details
+sendEmails = False
 emailAddress = "sender@gmail.com"
 emailPassword =  "senderPW"
 emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
 smtp_server = "smtp.gmail.com:465"
 
 # --- Setup done - No modifications required after this line ---
-header = "Subject: Schnucks Coupon Applier\n"
-errorOccurred = "\nError occured while trying to login. Please make sure credentials are correct and the script is up to date."
-beforeCoupons = "\nValue of coupons before: "
-appliedCoupons = "\nNumber of coupons applied: "
-afterCoupons = "\nValue of coupons after: "
-footnote = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
+headerStr   = "Subject: Schnucks Coupon Applier\n"
+errorStr    = "\nError occured while trying to login. Please make sure credentials are correct and the script is up to date."
+beforeStr   = "\nValue of coupons before: "
+appliedStr  = "\nNumber of coupons applied: "
+afterStr    = "\nValue of coupons after: "
+footnoteStr = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
 
 def getCouponTotal(driver):
     driver.refresh()
@@ -30,13 +30,13 @@ def getCouponTotal(driver):
 def sendEmail(sendSuccessEmail = False):
     if(sendEmails):
         if(sendSuccessEmail):
-            body = header + beforeCoupons + valueBeforeClicking + appliedCoupons + numOfUnclippedCoupons + afterCoupons + valueAfterClicking
+            body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
         else:
-            body = header + errorOccurred
+            body = headerStr + errorStr
         try:
             server = smtplib.SMTP_SSL(smtp_server)
             server.login(emailAddress, emailPassword)
-            server.sendmail(emailAddress, emailAddressReceiver, (body + footnote))
+            server.sendmail(emailAddress, emailAddressReceiver, (body + footnoteStr))
         except Exception as e:
             print(e)
         finally:
@@ -64,7 +64,7 @@ if (len(errorLogin) + len(errorEmail) > 0):
     driver.close()
     sys.exit()
 
-# Navigate to the coupons page
+# Navigate to the coupons page assuming no errors
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
 
 # Get current value of coupons
@@ -75,7 +75,7 @@ unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
 # '- 1' due to the hidden button
 numOfUnclippedCoupons = str(len(unclippedCoupons) - 1)
 
-# click buttons
+# click buttons and wait for execution to finish
 driver.execute_script("let btns = document.querySelectorAll('.schnucks-red-bg');btns.forEach(btns => btns.click())")
 time.sleep(5)
 
@@ -85,4 +85,4 @@ valueAfterClicking = getCouponTotal(driver)
 # Send email of before / after coupon values
 sendEmail(True)
 
-# driver.close()
+driver.close()
