@@ -1,7 +1,6 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
-from Emailer import sendEmail
-import time, sys
+import time, sys, smtplib, ssl
 
 # TODO provide credentials
 SchnucksAcctEmail = "abc@gmail.com"
@@ -14,12 +13,36 @@ emailPassword =  "senderPW@gmail.com"
 emailAddressReceiver = "receiver@gmail.com"
 smtp_server = "smtp.gmail.com:465"
 
-def getCouponTotal(driver, status):
+header = "Subject: Schnucks Coupon Applier\n"
+errorOccurred = "\nError occured while trying to login. Please make sure credentials are correct and the script is up to date."
+beforeCoupons = "\nValue of coupons before: "
+appliedCoupons = "\nNumber of coupons applied: "
+afterCoupons = "\nValue of coupons after: "
+footnote = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
+
+def getCouponTotal(driver):
     driver.refresh()
     time.sleep(5)
     couponSavings = driver.find_element_by_css_selector("div.link-text").text;
-    print(status + ": " + couponSavings)
     return couponSavings
+    
+def sendEmail(sendSuccessEmail = False):
+    if(sendEmails):
+        if(sendSuccessEmail):
+            body = header + beforeCoupons + valueBeforeClicking + appliedCoupons + numOfUnclippedCoupons + afterCoupons + valueAfterClicking + footnote
+        else:
+            body = header + errorOccurred + footnote
+        try:
+            server = smtplib.SMTP_SSL(smtp_server)
+            server.login(emailAddress, emailPassword)
+            server.sendmail(emailAddress, emailAddressReceiver, body)
+        except Exception as e:
+            print(e)
+        finally:
+            print("Sent\n" + body)
+            server.quit()
+    else:
+        print("sendEmails set to False")
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
@@ -37,11 +60,8 @@ errorLogin = driver.find_elements_by_class_name("login-error")
 errorEmail = driver.find_elements_by_class_name("schnucks-red")
 if (len(errorLogin) + len(errorEmail) > 0):
     sendEmail(False)
-    print("Login failed")
     driver.close()
     sys.exit()
-else:
-    print("Login successful")
 
 # Navigate to the coupons page
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
@@ -49,16 +69,15 @@ driver.get("https://nourish.schnucks.com/web-ext/coupons")
 # Get current value of coupons
 valueBeforeClicking = getCouponTotal(driver, "Before")
 
-# Find all the unclipped coupons and click them
+# Find number of unclipped coupons
 unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
-numOfUnclippedCoupons = len(unclippedCoupons)
-
 # '- 1' due to the hidden button
-print("Number of coupons clicked: " + str(numOfUnclippedCoupons - 1))
+numOfUnclippedCoupons = str(len(unclippedCoupons) - 1)
 
-# start at 1 to ignore the hidden button
-for i in range(1,numOfUnclippedCoupons):
-    unclippedCoupons[i].click()
+# click buttons
+driver.execute_script("let btns = document.querySelectorAll('.schnucks-red-bg');btns.forEach(btns => btns.click())")
+
+time.sleep(5)
 
 # Update the impact of the coupons
 valueAfterClicking = getCouponTotal(driver, "After")
@@ -66,4 +85,4 @@ valueAfterClicking = getCouponTotal(driver, "After")
 # Send email of before / after coupon values
 sendEmail(True)
 
-driver.close()
+# driver.close()
