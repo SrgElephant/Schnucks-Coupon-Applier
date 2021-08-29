@@ -28,7 +28,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   https://packaging.python.org/guides/installing-using-linux-tools/
   
-  More Info on the web driver manager:
+  More info on the webdriver manager:
   
   https://pypi.org/project/webdriver-manager/
   
