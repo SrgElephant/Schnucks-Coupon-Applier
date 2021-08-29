@@ -80,7 +80,7 @@ driver.execute_script("let btns = document.querySelectorAll('.schnucks-red-bg');
 time.sleep(5)
 
 # Update the impact of the coupons
-valueAfterClicking = getCouponTotal(driver, "After")
+valueAfterClicking = getCouponTotal(driver)
 
 # Send email of before / after coupon values
 sendEmail(True)
