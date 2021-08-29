@@ -24,8 +24,7 @@ footnoteStr = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
 def getCouponTotal(driver):
     driver.refresh()
     time.sleep(5)
-    couponSavings = driver.find_element_by_css_selector("div.link-text").text;
-    return couponSavings
+    return driver.find_element_by_css_selector("div.link-text").text;
 
 def sendEmail(sendSuccessEmail = False):
     if(sendEmails):
