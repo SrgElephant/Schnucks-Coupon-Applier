@@ -9,10 +9,11 @@ SchnucksAcctPassword =  "abc"
 # TODO set sendEmails to True if desired; must provide email account details
 sendEmails = True
 emailAddress = "sender@gmail.com"
-emailPassword =  "senderPW@gmail.com"
-emailAddressReceiver = "receiver@gmail.com"
+emailPassword =  "senderPW@"
+emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
 smtp_server = "smtp.gmail.com:465"
 
+# --- Setup done - No modifications required after this line ---
 header = "Subject: Schnucks Coupon Applier\n"
 errorOccurred = "\nError occured while trying to login. Please make sure credentials are correct and the script is up to date."
 beforeCoupons = "\nValue of coupons before: "
@@ -25,17 +26,17 @@ def getCouponTotal(driver):
     time.sleep(5)
     couponSavings = driver.find_element_by_css_selector("div.link-text").text;
     return couponSavings
-    
+
 def sendEmail(sendSuccessEmail = False):
     if(sendEmails):
         if(sendSuccessEmail):
-            body = header + beforeCoupons + valueBeforeClicking + appliedCoupons + numOfUnclippedCoupons + afterCoupons + valueAfterClicking + footnote
+            body = header + beforeCoupons + valueBeforeClicking + appliedCoupons + numOfUnclippedCoupons + afterCoupons + valueAfterClicking
         else:
-            body = header + errorOccurred + footnote
+            body = header + errorOccurred
         try:
             server = smtplib.SMTP_SSL(smtp_server)
             server.login(emailAddress, emailPassword)
-            server.sendmail(emailAddress, emailAddressReceiver, body)
+            server.sendmail(emailAddress, emailAddressReceiver, (body + footnote))
         except Exception as e:
             print(e)
         finally:
@@ -67,7 +68,7 @@ if (len(errorLogin) + len(errorEmail) > 0):
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
 
 # Get current value of coupons
-valueBeforeClicking = getCouponTotal(driver, "Before")
+valueBeforeClicking = getCouponTotal(driver)
 
 # Find number of unclipped coupons
 unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
@@ -76,7 +77,6 @@ numOfUnclippedCoupons = str(len(unclippedCoupons) - 1)
 
 # click buttons
 driver.execute_script("let btns = document.querySelectorAll('.schnucks-red-bg');btns.forEach(btns => btns.click())")
-
 time.sleep(5)
 
 # Update the impact of the coupons
