@@ -32,8 +32,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   More info on the webdriver-manager:
   
-  https://pypi.org/project/webdriver-manager/
-  __
+  https://pypi.org/project/webdriver-manager/  
   This program requires the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
   
   `SchnucksAcctEmail    = "SchnucksAcct@gmail.com"`
