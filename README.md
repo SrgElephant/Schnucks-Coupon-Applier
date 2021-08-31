@@ -41,7 +41,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `SchnucksAcctEmail     = "SchnucksAcct@gmail.com"`
   
-  `SchnucksAcctPassword = "SchnucksAcct"`
+  `SchnucksAcctPassword = "SchnucksAcctPW"`
    
    
    If you would like to send yourself emails, set sendEmails to True
