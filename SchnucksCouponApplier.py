@@ -1,6 +1,6 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
-import time, sys, smtplib
+import time, sys, smtplib, ssl
 
 # TODO provide credentials
 SchnucksAcctEmail    = "SchnucksAcct@gmail.com"
@@ -11,7 +11,8 @@ sendEmails           = False
 emailAddress         = "sender@gmail.com"
 emailPassword        = "senderPW"
 emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
-smtp_server          = "smtp.gmail.com:465"
+smtp_server          = "smtp.gmail.com"
+port                 = 465
 
 # --- Setup done --- No modifications required after this line ---
 
@@ -37,7 +38,9 @@ def send_email(send_success_email=False):
         body = headerStr + errorStr
     if sendEmails:
         try:
-            server = smtplib.SMTP_SSL(smtp_server)
+            server = smtplib.SMTP(smtp_server, port)
+            context = ssl.create_default_context()
+            server.starttls(context=context)
             server.login(emailAddress, emailPassword)
             server.sendmail(emailAddress, emailAddressReceiver, (body + footnoteStr))
         except Exception as e:
