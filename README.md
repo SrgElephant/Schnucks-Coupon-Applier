@@ -4,16 +4,16 @@
   
   Created in Ubuntu and Firefox. Two parts to this project:
   
-* - [] Python Setup
+* Python Setup
   
-* - [] CronJob Setup
+* CronJob Setup
   
 Alternatively, manually visiting the website would be launching the terminal and running
   
   `let btns = document.querySelectorAll(".schnucks-red-bg");`
    `btns.forEach(btns => btns.click());`
   
-## - [] Python Setup
+## Python Setup
   
   pip is required to install Selenium as well as the webdriver manager:
   
@@ -53,5 +53,5 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    Note: https://myaccount.google.com/lesssecureapps must be on for the sender.
    
-## - [] CronJob Setup
+## CronJob Setup
   
