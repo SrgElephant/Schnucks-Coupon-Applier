@@ -14,7 +14,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
    `btns.forEach(btns => btns.click());`
   
-## Python
+## Python Setup
   
   pip is required to install Selenium as well as the webdriver manager:
   
@@ -69,5 +69,5 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    Note: https://myaccount.google.com/lesssecureapps must be on for the sender.
    
-## CronJob
+## CronJob Setup
   
