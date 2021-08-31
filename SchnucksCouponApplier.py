@@ -17,8 +17,8 @@ port                 = 465
 # --- Setup done --- No modifications required after this line ---
 
 headerStr   = "Subject: Schnucks Coupon Applier\n"
-errorStr    = "\nError occured while trying to login." \
-              "\nPlease make sure credentials are correct and the script is up to date."
+errorStr    = "\nError occurred while trying to login." \
+              "\nPlease make sure Schnucks credentials are correct and the script is up to date."
 beforeStr   = "\nValue of coupons before: "
 appliedStr  = "\nNumber of coupons applied: "
 afterStr    = "\nValue of coupons after: "
@@ -54,8 +54,13 @@ def send_email(send_success_email=False):
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
-# Navigate to the page and insert Schnucks credentials
+# Navigate to the page
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
+
+# Wait for the page to load
+time.sleep(5);
+
+# Insert Schnucks credentials
 driver.find_element_by_id('logonId').send_keys(SchnucksAcctEmail)
 driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
 driver.find_element_by_class_name('login-button').click()
@@ -73,6 +78,9 @@ if len(errorLogin) + len(errorEmail) > 0:
 
 # Navigate to the coupons page assuming no errors
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
+
+# Wait for the page to load
+time.sleep(5);
 
 # Get current value of coupons
 valueBeforeClicking = get_coupon_total(driver)
