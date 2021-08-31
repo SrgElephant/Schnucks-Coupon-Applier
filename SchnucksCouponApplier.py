@@ -4,7 +4,7 @@ import time, sys, smtplib, ssl
 
 # TODO provide credentials
 SchnucksAcctEmail    = "SchnucksAcct@gmail.com"
-SchnucksAcctPassword = "SchnucksAcct"
+SchnucksAcctPassword = "SchnucksAcctPW"
 
 # OPTIONAL TODO set sendEmails to True if desired; must provide email account details
 sendEmails           = False
