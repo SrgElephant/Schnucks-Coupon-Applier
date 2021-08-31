@@ -13,7 +13,7 @@ emailPassword =  "senderPW"
 emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
 smtp_server = "smtp.gmail.com:465"
 
-# --- Setup done - No modifications required after this line ---
+# --- Setup done --- No modifications required after this line ---
 headerStr   = "Subject: Schnucks Coupon Applier\n"
 errorStr    = "\nError occured while trying to login. Please make sure credentials are correct and the script is up to date."
 beforeStr   = "\nValue of coupons before: "
@@ -42,7 +42,7 @@ def sendEmail(sendSuccessEmail = False):
             print("Sent\n" + body)
             server.quit()
     else:
-        print("sendEmails set to False")
+        print("Emails not setup")
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
@@ -59,7 +59,7 @@ time.sleep(5);
 errorLogin = driver.find_elements_by_class_name("login-error")
 errorEmail = driver.find_elements_by_class_name("schnucks-red")
 if (len(errorLogin) + len(errorEmail) > 0):
-    sendEmail(False)
+    sendEmail()
     driver.close()
     sys.exit()
 
@@ -81,7 +81,7 @@ time.sleep(5)
 # Update the impact of the coupons
 valueAfterClicking = getCouponTotal(driver)
 
+driver.close()
+
 # Send email of before / after coupon values
 sendEmail(True)
-
-driver.close()
