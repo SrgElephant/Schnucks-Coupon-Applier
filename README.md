@@ -55,8 +55,6 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your email account info.
    
-   Note: https://myaccount.google.com/lesssecureapps Must be on for the sender
-   
    `emailAddress  = "sender@gmail.com"`
    
    `emailPassword = "senderPW"`
@@ -68,6 +66,8 @@ Alternatively, manually visiting the website would be launching the terminal and
    `smtp_server = "smtp.gmail.com"`
    
    `port = 465`
+   
+   Note: https://myaccount.google.com/lesssecureapps must be on for the sender.
    
 ## CronJob
   
