@@ -50,7 +50,7 @@ def send_email(send_success_email=False):
             print("Email not sent")
         finally:
             server.quit()
-            print("Email sent")
+            print("Email sent to: " + emailAddressReceiver)
     else:
         print("Email info not setup")
     
