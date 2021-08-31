@@ -76,13 +76,19 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   Select a text editor if prompted.
   
-  A website such as https://crontab.guru/ can help format the frequency of how often the script is run. For example, to run the script everyday at 1 am: __0 1 * * *__
+  A website such as https://crontab.guru/ can help format the frequency of how often the script is run. For example, to run the script everyday at 1 am:
+  
+  __0 1 * * *__
   
   The format of a cronjob is [frequency] [command]. For example, this cronjob has 2 commands:
   
   `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
   
-  Replace __/home/{user}/Documents__ with the location of the script. In this example, the sca.py script is located in {user}'s Documents. This runs sca.py everyday @ 1 am.
+  Replace
+  
+  __/home/{user}/Documents__
+  
+  with the location of the script. In this example, the sca.py script is located in {user}'s Documents. This runs sca.py everyday @ 1 am.
   
   Save the cronjob edit.
   
