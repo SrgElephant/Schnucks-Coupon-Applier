@@ -32,26 +32,31 @@ def get_coupon_total(driver):
 
 
 def send_email(send_success_email=False):
+    # body contents
     if send_success_email:
         body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
     else:
         body = headerStr + errorStr
+    
+    # determine action
     if sendEmails:
         try:
-            server = smtplib.SMTP(smtp_server, port)
-            context = ssl.create_default_context()
-            server.starttls(context=context)
+            server = smtplib.SMTP_SSL(smtp_server, port)
+            server.ehlo()
             server.login(emailAddress, emailPassword)
             server.sendmail(emailAddress, emailAddressReceiver, (body + footnoteStr))
         except Exception as e:
             print(e)
+            print("Email not sent")
         finally:
             server.quit()
+            print("Email sent")
     else:
-        print("Emails not setup")
+        print("Email info not setup")
+    
     print("Body:\n" + body)
-
-
+    
+    
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
 # Navigate to the page
