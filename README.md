@@ -44,7 +44,12 @@ Alternatively, manually visiting the website would be launching the terminal and
   `SchnucksAcctPassword = "SchnucksAcctPW"`
    
    
-   If you would like to send yourself emails, set sendEmails to True
+   All requirements for Python Setup is complete.
+   
+   If you would like to send yourself emails, continue. Otherwise go to Cronjob Setup.
+   
+   
+   Set sendEmails to True
    
    `sendEmails = True`
    
