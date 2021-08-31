@@ -1,37 +1,41 @@
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
-import time, sys, smtplib, ssl
+import time, sys, smtplib
 
 # TODO provide credentials
-SchnucksAcctEmail = "SchnucksAcct@gmail.com"
-SchnucksAcctPassword =  "SchnucksAcct"
+SchnucksAcctEmail    = "SchnucksAcct@gmail.com"
+SchnucksAcctPassword = "SchnucksAcct"
 
 # OPTIONAL TODO set sendEmails to True if desired; must provide email account details
-sendEmails = False
-emailAddress = "sender@gmail.com"
-emailPassword =  "senderPW"
+sendEmails           = False
+emailAddress         = "sender@gmail.com"
+emailPassword        = "senderPW"
 emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
-smtp_server = "smtp.gmail.com:465"
+smtp_server          = "smtp.gmail.com:465"
 
 # --- Setup done --- No modifications required after this line ---
+
 headerStr   = "Subject: Schnucks Coupon Applier\n"
-errorStr    = "\nError occured while trying to login. Please make sure credentials are correct and the script is up to date."
+errorStr    = "\nError occured while trying to login." \
+              "\nPlease make sure credentials are correct and the script is up to date."
 beforeStr   = "\nValue of coupons before: "
 appliedStr  = "\nNumber of coupons applied: "
 afterStr    = "\nValue of coupons after: "
 footnoteStr = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
 
-def getCouponTotal(driver):
+
+def get_coupon_total(driver):
     driver.refresh()
     time.sleep(5)
     return driver.find_element_by_css_selector("div.link-text").text;
 
-def sendEmail(sendSuccessEmail = False):
-    if(sendEmails):
-        if(sendSuccessEmail):
-            body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
-        else:
-            body = headerStr + errorStr
+
+def send_email(send_success_email=False):
+    if send_success_email:
+        body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
+    else:
+        body = headerStr + errorStr
+    if sendEmails:
         try:
             server = smtplib.SMTP_SSL(smtp_server)
             server.login(emailAddress, emailPassword)
@@ -39,10 +43,11 @@ def sendEmail(sendSuccessEmail = False):
         except Exception as e:
             print(e)
         finally:
-            print("Sent\n" + body)
             server.quit()
     else:
         print("Emails not setup")
+    print("Body:\n" + body)
+
 
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
@@ -58,8 +63,8 @@ time.sleep(5);
 # Types of errors
 errorLogin = driver.find_elements_by_class_name("login-error")
 errorEmail = driver.find_elements_by_class_name("schnucks-red")
-if (len(errorLogin) + len(errorEmail) > 0):
-    sendEmail()
+if len(errorLogin) + len(errorEmail) > 0:
+    send_email()
     driver.close()
     sys.exit()
 
@@ -67,7 +72,7 @@ if (len(errorLogin) + len(errorEmail) > 0):
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
 
 # Get current value of coupons
-valueBeforeClicking = getCouponTotal(driver)
+valueBeforeClicking = get_coupon_total(driver)
 
 # Find number of unclipped coupons
 unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
@@ -79,9 +84,9 @@ driver.execute_script("let btns = document.querySelectorAll('.schnucks-red-bg');
 time.sleep(5)
 
 # Update the impact of the coupons
-valueAfterClicking = getCouponTotal(driver)
+valueAfterClicking = get_coupon_total(driver)
 
 driver.close()
 
 # Send email of before / after coupon values
-sendEmail(True)
+send_email(True)
