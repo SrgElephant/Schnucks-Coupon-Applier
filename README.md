@@ -35,7 +35,9 @@ Alternatively, manually visiting the website would be launching the terminal and
   https://pypi.org/project/webdriver-manager/
   
   
-  This program requires the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with their respective strings.
+  
+  
+  This program requires the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
   
   `SchnucksAcctEmail     = "SchnucksAcct@gmail.com"`
   
@@ -46,7 +48,7 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    `sendEmails = True`
    
-   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your Schnucks account info.
+   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your email account info.
    
    `emailAddress  = "sender@gmail.com"`
    
