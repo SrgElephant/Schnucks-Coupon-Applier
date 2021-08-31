@@ -14,7 +14,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
    `btns.forEach(btns => btns.click());`
   
-## Python Setup
+## - [] Python Setup
   
   pip is required to install Selenium as well as the webdriver manager:
   
@@ -33,13 +33,10 @@ Alternatively, manually visiting the website would be launching the terminal and
   More info on the webdriver-manager:
   
   https://pypi.org/project/webdriver-manager/
-  
-  
-  
-  
+  __
   This program requires the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
   
-  `SchnucksAcctEmail     = "SchnucksAcct@gmail.com"`
+  `SchnucksAcctEmail    = "SchnucksAcct@gmail.com"`
   
   `SchnucksAcctPassword = "SchnucksAcctPW"`
    
@@ -69,5 +66,5 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    Note: https://myaccount.google.com/lesssecureapps must be on for the sender.
    
-## CronJob Setup
+## - [] CronJob Setup
   
