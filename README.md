@@ -46,7 +46,7 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    `sendEmails = True`
    
-   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with their respective strings.
+   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your Schnucks account info.
    
    `emailAddress  = "sender@gmail.com"`
    
