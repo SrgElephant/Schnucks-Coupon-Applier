@@ -2,10 +2,10 @@
 
   This program automates applying all of the digital coupons to a Schnucks account. Includes opening the web browser, logging in, clipping coupons, and optionally sending an email with the updated coupon value.
   
-  Created in Ubuntu and Firefox. Two parts to this project:
+  Created in Ubuntu and Firefox. Parts to this project:
   
 * Python Setup
-  
+* Initial Run
 * CronJob Setup
   
 Alternatively, manually visiting the website would be launching the terminal and running
@@ -31,7 +31,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   More info on the webdriver-manager:
   https://pypi.org/project/webdriver-manager/
   
-  This program requires the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
+  Download sca.py to edit the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
   
   `SchnucksAcctEmail    = "SchnucksAcct@gmail.com"`
   
@@ -60,5 +60,34 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    Note: https://myaccount.google.com/lesssecureapps must be on for the sender.
    
+## Initial Run
+  
+  In the folder with sca.py, open a terminal. Run
+  
+  `python3 sca.py`
+  
+  There should be a print statement in the terminal with a message, and an email sent if setup. The script must be working before CronJob Setup.
+  
 ## CronJob Setup
   
+  In the terminal, run
+  
+  `crontab -e`
+  
+  Select a text editor if prompted.
+  
+  A website such as https://crontab.guru/ can help format the frequency of how often the script is run. For example, to run the script everyday at 1 am: __0 1 * * *__
+  
+  The format of a cronjob is [frequency] [command]. For example, this cronjob has 2 commands:
+  
+  `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
+  
+  Replace __/home/{user}/Documents__ with the location of the script. In this example, the sca.py script is located in {user}'s Documents. This runs sca.py everyday @ 1 am.
+  
+  Save the cronjob edit.
+  
+  To view the new cronjob, run
+  
+  `cronjob -l`
+  
+  For more info on cronjobs: https://en.wikipedia.org/wiki/Cron
