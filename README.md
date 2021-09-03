@@ -2,7 +2,7 @@
 
   This program automates applying all of the digital coupons to a Schnucks account. Includes opening the web browser, logging in, clipping coupons, and optionally sending an email with the updated coupon value.
   
-  Created in Ubuntu and Firefox. Parts to this project:
+  Created in Ubuntu and with Firefox. Parts to this project:
   
 * Python Setup
 * Initial Run
