@@ -81,7 +81,9 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   __0 1 * * *__
   
-  The format of a cronjob is [frequency] [command]. For example, this cronjob has 2 commands:
+  The format of a cronjob is [frequency] [command].
+  
+  For example, this cronjob runs sca.py everyday @ 1 am and has 2 commands:
   
   `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
   
@@ -89,7 +91,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   __/home/{user}/Documents__
   
-  with the location of the script. In this example, the sca.py script is located in {user}'s Documents. This runs sca.py everyday @ 1 am.
+  with the location of the script. In this example, the sca.py script is located in {user}'s Documents.
   
   Save the cronjob edit.
   
