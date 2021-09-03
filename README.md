@@ -2,7 +2,7 @@
 
   This program automates applying all of the digital coupons to a Schnucks account. Includes opening the web browser, logging in, clipping coupons, and optionally sending an email with the updated coupon value.
   
-  ![unclipped](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/unclipped.png)
+  ![unclipped]<img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/unclipped.png" width="300" height="300">
   
   ![clipped](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png)
   
