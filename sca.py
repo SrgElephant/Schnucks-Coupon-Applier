@@ -1,6 +1,7 @@
+# Version .9 - Testing
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
-import time, sys, smtplib, ssl
+import time, sys, smtplib
 
 # TODO provide credentials
 SchnucksAcctEmail    = "SchnucksAcct@gmail.com"
@@ -55,11 +56,12 @@ def send_email(send_success_email=False):
         print("Email info not setup")
     
     print("Body:\n" + body)
-    
-    
+
+
+# Start the program
 driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
-# Navigate to the page
+# Navigate to login page
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
 
 # Wait for the page to load
@@ -99,7 +101,7 @@ numOfUnclippedCoupons = str(len(unclippedCoupons) - 1)
 driver.execute_script("let btns = document.querySelectorAll('.schnucks-red-bg');btns.forEach(btns => btns.click())")
 time.sleep(5)
 
-# Update the impact of the coupons
+# Update the impact of clipping coupons
 valueAfterClicking = get_coupon_total(driver)
 
 driver.close()
