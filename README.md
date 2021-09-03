@@ -67,7 +67,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `python3 sca.py`
   
-  There should be a print statement in the terminal, and possibly an email sent depending on setup. If the script does not work, check all the account details are correct.
+  There should be a print statement in the terminal, and possibly an email sent depending on setup. If the script does not work, go back to Python Setup.
   
 ## CronJob Setup
   
