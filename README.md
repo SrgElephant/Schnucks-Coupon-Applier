@@ -4,7 +4,7 @@
   
   <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/unclipped.png" width="300" height="600">
   
-  <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png" width="200" height="300">
+  <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png" width="300" height="300">
   
   Created in Ubuntu and with Firefox. Parts to this project:
   
