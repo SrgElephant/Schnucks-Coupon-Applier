@@ -73,7 +73,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   There should be a print statement in the terminal, and possibly an email sent depending on setup. If the script does not work, go back to Python Setup.
   
-  <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/output.png" width="300" height="300">
+  <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/output.png" width="900" height="300">
   
 ## CronJob Setup
   
