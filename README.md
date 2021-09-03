@@ -2,9 +2,9 @@
 
   This program automates applying all of the digital coupons to a Schnucks account. Includes opening the web browser, logging in, clipping coupons, and optionally sending an email with the updated coupon value.
   
-  ![Unclipped](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/unclipped.png)
+  ![unclipped](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/unclipped.png)
   
-  ![Clipped](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png)
+  ![clipped](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png)
   
   Created in Ubuntu and with Firefox. Parts to this project:
   
@@ -71,9 +71,9 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `python3 sca.py`
   
-  ![There should be a print statement in the terminal, and possibly an email sent depending on setup. If the script does not work, go back to Python Setup.]
+  There should be a print statement in the terminal, and possibly an email sent depending on setup. If the script does not work, go back to Python Setup.
   
-  (https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/output.png)
+  ![output](https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/output.png)
   
 ## CronJob Setup
   
