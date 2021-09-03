@@ -38,7 +38,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `SchnucksAcctPassword = "SchnucksAcctPW"`
    
-   All requirements for Python Setup is complete.
+   Minimum requirements for Python Setup is complete.
    If you would like to send yourself emails, continue. Otherwise go to Cronjob Setup.
    
    Set sendEmails to True
