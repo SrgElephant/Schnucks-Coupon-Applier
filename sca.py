@@ -1,4 +1,5 @@
-# Version .9 - Testing
+# Version .91 - Testing
+ver = .91
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 import time, sys, smtplib
@@ -19,7 +20,7 @@ port                 = 465
 
 headerStr   = "Subject: Schnucks Coupon Applier\n"
 errorStr    = "\nError occurred while trying to login." \
-              "\nPlease make sure Schnucks credentials are correct and the script is up to date."
+              "\nPlease make sure Schnucks credentials are correct and the script is up to date. Current Version: " + ver
 beforeStr   = "\nValue of coupons before: "
 appliedStr  = "\nNumber of coupons applied: "
 afterStr    = "\nValue of coupons after: "
@@ -38,7 +39,7 @@ def send_email(send_success_email=False):
         body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
     else:
         body = headerStr + errorStr
-    
+
     # determine action
     if sendEmails:
         try:
@@ -46,15 +47,14 @@ def send_email(send_success_email=False):
             server.ehlo()
             server.login(emailAddress, emailPassword)
             server.sendmail(emailAddress, emailAddressReceiver, (body + footnoteStr))
+            server.quit()
+            print("Email sent to: " + emailAddressReceiver)
         except Exception as e:
             print(e)
             print("Email not sent")
-        finally:
-            server.quit()
-            print("Email sent to: " + emailAddressReceiver)
     else:
         print("Email info not setup")
-    
+
     print("Body:\n" + body)
 
 
