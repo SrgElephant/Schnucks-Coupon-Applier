@@ -6,7 +6,7 @@
   
   <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png" width="300" height="300">
   
-  Created in Ubuntu and with Firefox. Parts to this project:
+  Created in Ubuntu + Firefox. Parts to this project:
   
 * Python Setup
 * Initial Run
@@ -36,7 +36,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   More info on the webdriver-manager:
   https://pypi.org/project/webdriver-manager/
   
-  Download sca.py to edit the email and password for a Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
+  Download sca.py to edit the email and password for the Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
   
   `SchnucksAcctEmail    = "SchnucksAcct@gmail.com"`
   
@@ -101,7 +101,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   Save the cronjob edit.
   
-  To view the new cronjob, run
+  To view cronjobs, run
   
   `cronjob -l`
   
