@@ -43,7 +43,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   `SchnucksAcctPassword = "SchnucksAcctPW"`
    
    Minimum requirements for Python Setup is complete.
-   If you would like to send yourself emails, continue. Otherwise go to Cronjob Setup.
+   If you would like to send yourself emails, continue. Otherwise, go to Cronjob Setup.
    
    Set sendEmails to True
    
@@ -89,11 +89,11 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   The format of a cronjob is [frequency] [command].
   
-  For example, this cronjob runs sca.py everyday @ 1 am and has 2 commands:
+  For example, this cronjob has 2 commands and runs sca.py everyday @ 1 am:
   
   `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
   
-  Replace both
+  Replace both instances of
   
   __/home/{user}/Documents__
   
