@@ -87,7 +87,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
   
-  Replace
+  Replace both
   
   __/home/{user}/Documents__
   
