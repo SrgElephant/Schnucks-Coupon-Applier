@@ -11,6 +11,7 @@
 Alternatively, manually visiting the website would be launching the terminal and running
   
   `let btns = document.querySelectorAll(".schnucks-red-bg");`
+  
    `btns.forEach(btns => btns.click());`
   
 ## Python Setup
