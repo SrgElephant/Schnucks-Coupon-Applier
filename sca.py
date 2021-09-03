@@ -1,6 +1,7 @@
-# Version 1.0
-ver = 1.0
+# Version 1.01
+ver = 1.01
 from selenium import webdriver
+from selenium.webdriver import FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
 import time, sys, smtplib
 
@@ -60,7 +61,9 @@ def send_email(send_success_email=False):
 
 
 # Start the program
-driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+options = webdriver.FirefoxOptions()
+options.headless = True
+driver = webdriver.Firefox(options=options,executable_path=GeckoDriverManager().install())
 
 # Navigate to login page
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
