@@ -59,7 +59,7 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    `port = 465`
    
-   Note: https://myaccount.google.com/lesssecureapps must be on for the sender.
+   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender.
    
 ## Initial Run
   
