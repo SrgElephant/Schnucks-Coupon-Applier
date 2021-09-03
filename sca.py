@@ -1,5 +1,5 @@
-# Version .91 - Testing
-ver = .91
+# Version 1.0
+ver = 1.0
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 import time, sys, smtplib
@@ -20,7 +20,8 @@ port                 = 465
 
 headerStr   = "Subject: Schnucks Coupon Applier\n"
 errorStr    = "\nError occurred while trying to login." \
-              "\nPlease make sure Schnucks credentials are correct and the script is up to date. Current Version: " + ver
+              "\nPlease make sure Schnucks credentials are correct and the script is up to date." \
+              "\nCurrent Version: " + str(ver)
 beforeStr   = "\nValue of coupons before: "
 appliedStr  = "\nNumber of coupons applied: "
 afterStr    = "\nValue of coupons after: "
