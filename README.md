@@ -43,7 +43,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   `SchnucksAcctPassword = "SchnucksAcctPW"`
    
    Minimum requirements for Python Setup is complete.
-   If you would like to send yourself emails, continue. Otherwise, go to Cronjob Setup.
+   If you would like to send yourself emails, continue. Otherwise, go to Inital Run.
    
    Set sendEmails to True
    
@@ -57,7 +57,7 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    `emailAddressReceiver = "receiver@gmail.com"`
    
-   By default, this program assumes gmail. Replace "smtp.gmail.com" and "465" to match the smtp server of your email provider.
+   By default, this program assumes Gmail. Replace "smtp.gmail.com" and "465" to match the smtp server of your email provider.
    
    `smtp_server = "smtp.gmail.com"`
    
@@ -71,7 +71,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `python3 sca.py`
   
-  There should be a print statement in the terminal, and possibly an email sent depending on setup. If the script does not work, go back to Python Setup.
+  There should be a print statement like the one shown below, and possibly an email sent depending on setup. If the script does not work, go back to Python Setup.
   
   <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/output.png" width="375" height="125">
   
@@ -87,9 +87,9 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   __0 1 * * *__
   
-  The format of a cronjob is [frequency] [command].
+  The format of a cronjob is [frequency] [command(s)].
   
-  For example, this cronjob has 2 commands and runs sca.py everyday @ 1 am:
+  For example, this cronjob runs sca.py everyday @ 1 am and has 3 commands:
   
   `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
   
