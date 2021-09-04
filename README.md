@@ -43,7 +43,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   `SchnucksAcctPassword = "SchnucksAcctPW"`
    
    Minimum requirements for Python Setup is complete.
-   If you would like to send yourself emails, continue. Otherwise, go to Inital Run.
+   If you would like to send yourself emails, continue. Otherwise, go to Initial Run.
    
    Set sendEmails to True
    
