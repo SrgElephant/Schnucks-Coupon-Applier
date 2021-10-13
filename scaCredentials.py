@@ -1,24 +1,27 @@
-# Version 1.9
+# Version 1.91
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
-import rsa
+from cryptography.fernet import Fernet
 
-# File
-f = open("scaCred.txt", "w")
+# Single byte string to be encoded
+credentialsStr = ""
 
-# Generate keys
-publicKey, privateKey = rsa.newkeys(512)
-f.write(str(privateKey))
-f.write("\n")
+# Generate key
+key = Fernet.generate_key()
+fernet = Fernet(key)
+
+# Key file
+f0 = open("key.txt", "wb")
+f0.write(key)
+f0.close()
 
 # Required input
-SchnucksAcctEmail    = input("Schnucks Account email: ")
-SchnucksAcctPassword = input("Schnucks Account password: ")
-# Encrypt
-encSchnucksEmail    = rsa.encrypt(SchnucksAcctEmail.encode(), publicKey)
-encSchnucksPassword = rsa.encrypt(SchnucksAcctPassword.encode(), publicKey)
-# Write
-f.write(str(encSchnucksEmail) + "\n")
-f.write(str(encSchnucksPassword) + "\n")
+credentialsStr += input("Schnucks Account email: ") + "\n"
+credentialsStr += input("Schnucks Account password: ") + "\n"
+
+# Credentials file
+f1 = open("cred.txt", "wb")
+f1.write(fernet.encrypt(credentialsStr.encode()))
+f1.close()
 
 # Decide on emails
 sendEmails = input("Setup email credentials to send emails (y)?: ")
@@ -31,9 +34,9 @@ if sendEmails == "y" or sendEmails == "yes":
 	port                 = input("SMTP server port\nReccomended: 465: ")
 	
 	# Encrypt
-	encEmailAddress         = rsa.encrypt(emailAddress.encode(), publicKey)
-	encEmailPassword        = rsa.encrypt(emailPassword.encode(), publicKey)
-	encEmailAddressReceiver = rsa.encrypt(emailAddressReceiver.encode(), publicKey)
+	encEmailAddress         = fernet.encrypt(emailAddress.encode())
+	encEmailPassword        = fernet.encrypt(emailPassword.encode())
+	encEmailAddressReceiver = fernet.encrypt(emailAddressReceiver.encode())
 	
 	# Write
 	f.write(str(encEmailAddress) + "\n")
@@ -43,4 +46,5 @@ if sendEmails == "y" or sendEmails == "yes":
 	f.write(str(port) + "\n")
 
 print("Credentials complete.")
-f.close()
+f0.close()
+f1.close()
