@@ -36,35 +36,10 @@ Alternatively, manually visiting the website would be launching the terminal and
   More info on the webdriver-manager:
   https://pypi.org/project/webdriver-manager/
   
-  Download sca.py to edit the email and password for the Schnucks account. Replace "SchnucksAcct@gmail.com" and "SchnucksAcctPW" with your Schnucks account info.
+  Download scaCredentials.py and type in the credentials. These will be encrypted to a text file.
   
-  `SchnucksAcctEmail    = "SchnucksAcct@gmail.com"`
+  Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
   
-  `SchnucksAcctPassword = "SchnucksAcctPW"`
-   
-   Minimum requirements for Python Setup is complete.
-   If you would like to send yourself emails, continue. Otherwise, go to Initial Run.
-   
-   Set sendEmails to True
-   
-   `sendEmails = True`
-   
-   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your email account info. The receiver can be identical to the sender.
-   
-   `emailAddress  = "sender@gmail.com"`
-   
-   `emailPassword = "senderPW"`
-   
-   `emailAddressReceiver = "receiver@gmail.com"`
-   
-   By default, this program assumes Gmail. Replace "smtp.gmail.com" and "465" to match the smtp server of your email provider.
-   
-   `smtp_server = "smtp.gmail.com"`
-   
-   `port = 465`
-   
-   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender.
-   
 ## Initial Run
   
   In the folder with sca.py, open a terminal. Run
