@@ -42,4 +42,5 @@ if sendEmails == "y" or sendEmails == "yes":
 	f.write(str(smtp_server) + "\n")
 	f.write(str(port) + "\n")
 
+print("Credentials complete.")
 f.close()
