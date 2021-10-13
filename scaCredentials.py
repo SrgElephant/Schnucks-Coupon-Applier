@@ -3,7 +3,7 @@
 import rsa
 
 # File
-f = open("myfile.txt", "w")
+f = open("scaCred.txt", "w")
 
 # Generate keys
 publicKey, privateKey = rsa.newkeys(512)
@@ -41,3 +41,5 @@ if sendEmails == "y" or sendEmails == "yes":
 	f.write(str(encEmailAddressReceiver) + "\n")
 	f.write(str(smtp_server) + "\n")
 	f.write(str(port) + "\n")
+
+f.close()
