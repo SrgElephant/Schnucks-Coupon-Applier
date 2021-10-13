@@ -3,24 +3,24 @@ ver = 1.9
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
-import time, sys, smtplib
+import time, sys, smtplib, rsa
 
 # Read credentials
 f = open("scaCred.txt","r")
 lines = f.readlines()
 
 privateKey           = lines[0]
-SchnucksAcctEmail    = lines[1]
-SchnucksAcctPassword = lines[2]
+SchnucksAcctEmail    = rsa.decrypt(lines[1], privateKey).decode()
+SchnucksAcctPassword = rsa.decrypt(lines[2], privateKey).decode()
 
 sendEmails = False
 if len(lines) > 3:
 	sendEmails = True
-	emailAddress         = lines[3]
-	emailPassword        = lines[4]
-	emailAddressReceiver = lines[5]
-	smtp_server          = lines[6]
-	port                 = lines[7]
+	emailAddress         = rsa.decrypt(lines[3], privateKey).decode()
+	emailPassword        = rsa.decrypt(lines[4], privateKey).decode()
+	emailAddressReceiver = rsa.decrypt(lines[5], privateKey).decode()
+	smtp_server          = rsa.decrypt(lines[6], privateKey).decode()
+	port                 = rsa.decrypt(lines[7], privateKey).decode()
 f.close()
 
 headerStr   = "Subject: Schnucks Coupon Applier\n"
