@@ -1,27 +1,35 @@
-# Version 1.9
-ver = 1.9
+# Version 1.91
+ver = 1.91
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
-import time, sys, smtplib, rsa
+from cryptography.fernet import Fernet
+import time, sys, smtplib
+
+# Read key
+f0 = open("key.txt","rb")
+key = f0.read()
+fernet = Fernet(key)
 
 # Read credentials
-f = open("scaCred.txt","r")
-lines = f.readlines()
+f1 = open("cred.txt","rb")
+lines = f1.read()
+lines = fernet.decrypt(lines)
+lines = lines.decode()
+listLines = lines.split('\n')
+f1.close()
 
-privateKey           = lines[0]
-SchnucksAcctEmail    = rsa.decrypt(lines[1], privateKey).decode()
-SchnucksAcctPassword = rsa.decrypt(lines[2], privateKey).decode()
+SchnucksAcctEmail    = listLines[0]
+SchnucksAcctPassword = listLines[1]
 
 sendEmails = False
-if len(lines) > 3:
+if len(listLines) > 3:
 	sendEmails = True
-	emailAddress         = rsa.decrypt(lines[3], privateKey).decode()
-	emailPassword        = rsa.decrypt(lines[4], privateKey).decode()
-	emailAddressReceiver = rsa.decrypt(lines[5], privateKey).decode()
-	smtp_server          = rsa.decrypt(lines[6], privateKey).decode()
-	port                 = rsa.decrypt(lines[7], privateKey).decode()
-f.close()
+	emailAddress         = listLines[2]
+	emailPassword        = listLines[3]
+	emailAddressReceiver = listLines[4]
+	smtp_server          = listLines[5]
+	port                 = listLines[6]
 
 headerStr   = "Subject: Schnucks Coupon Applier\n"
 errorStr    = "\nError occurred while trying to login." \
@@ -44,7 +52,7 @@ def send_email(send_success_email=False):
     if send_success_email:
         body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
     else:
-        body = headerStr + errorStr
+        body = headerStr + errorStr + footnoteStr
 
     # determine action
     if sendEmails:
