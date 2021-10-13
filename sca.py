@@ -1,23 +1,27 @@
-# Version 1.01
-ver = 1.01
+# Version 1.9
+ver = 1.9
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
 import time, sys, smtplib
 
-# TODO provide credentials
-SchnucksAcctEmail    = "SchnucksAcct@gmail.com"
-SchnucksAcctPassword = "SchnucksAcctPW"
+# Read credentials
+f = open("scaCred.txt","r")
+lines = f.readlines()
 
-# OPTIONAL TODO set sendEmails to True if desired; must provide email account details
-sendEmails           = False
-emailAddress         = "sender@gmail.com"
-emailPassword        = "senderPW"
-emailAddressReceiver = "receiver@gmail.com" # can be identical to emailAddress
-smtp_server          = "smtp.gmail.com"
-port                 = 465
+privateKey           = lines[0]
+SchnucksAcctEmail    = lines[1]
+SchnucksAcctPassword = lines[2]
 
-# --- Setup done --- No modifications required after this line ---
+sendEmails = False
+if len(lines) > 3:
+	sendEmails = True
+	emailAddress         = lines[3]
+	emailPassword        = lines[4]
+	emailAddressReceiver = lines[5]
+	smtp_server          = lines[6]
+	port                 = lines[7]
+f.close()
 
 headerStr   = "Subject: Schnucks Coupon Applier\n"
 errorStr    = "\nError occurred while trying to login." \
