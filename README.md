@@ -49,7 +49,7 @@ Alternatively, manually visiting the website would be launching the terminal and
    
    `sendEmails = True`
    
-   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your email account info. The reciever can be identical to the sender.
+   Replace "sender@gmail.com", "senderPW", and "receiver@gmail.com" with your email account info. The receiver can be identical to the sender.
    
    `emailAddress  = "sender@gmail.com"`
    
