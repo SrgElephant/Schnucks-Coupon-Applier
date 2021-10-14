@@ -41,6 +41,8 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   https://pypi.org/project/webdriver-manager/
   
+  ## Initial Run
+  
   Download scaCredentials.py. Open the terminal where the file is located, and type
   
   `python3 scaCredentials.py`
@@ -48,8 +50,6 @@ Alternatively, manually visiting the website would be launching the terminal and
   Type in the credentials. These will be encrypted to a text file. If a typo is made, just run the file again.
   
   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
-  
-## Initial Run
   
   In the folder with sca.py, open a terminal. Run
   
