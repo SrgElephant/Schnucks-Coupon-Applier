@@ -33,6 +33,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   `pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U`
   
   To install pip for other operating systems:
+  
   https://packaging.python.org/guides/installing-using-linux-tools/
   
   More info on the Selenium and webdriver-manager:
