@@ -41,7 +41,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   https://pypi.org/project/webdriver-manager/
   
-  Download scaCredentials.py. Open the erminal where the file is located, and type
+  Download scaCredentials.py. Open the terminal where the file is located, and type
   
   `python3 scaCredentials.py`
   
