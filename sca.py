@@ -61,7 +61,7 @@ def send_email(send_success_email=False):
             server = smtplib.SMTP_SSL(smtp_server, port)
             server.ehlo()
             server.login(emailAddress, emailPassword)
-            server.sendmail(emailAddress, emailAddressReceiver, (body + footnoteStr))
+            server.sendmail(emailAddress, emailAddressReceiver, body)
             server.quit()
             print("Email sent to: " + emailAddressReceiver)
         except Exception as e:
