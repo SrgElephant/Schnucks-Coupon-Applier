@@ -67,7 +67,7 @@ def send_email(send_success_email=False):
             print("Email sent to: " + emailAddressReceiver)
         except Exception as e:
             print(e)
-            print("Email not sent")
+            print("\n\nEmail not sent")
     else:
         print("Email info not setup")
 
