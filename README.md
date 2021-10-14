@@ -75,13 +75,13 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   For example, this cronjob runs sca.py everyday @ 1 am and has 3 commands:
   
-  `0 1 * * * cd /home/{user}/Documents && /usr/bin/python3 /home/{user}/Documents/sca.py`
+  `0 1 * * * cd /home/{user}/Documents/SCA && /usr/bin/python3 /home/{user}/Documents/SCA/sca.py`
   
   Replace both instances of
   
-  __/home/{user}/Documents__
+  __/home/{user}/Documents/SCA__
   
-  with the location of the script. In this example, the sca.py script is located in {user}'s Documents.
+  with the location of the script. In this example, the sca.py script is located in {user}'s SCA folder.
   
   Save the cronjob edit.
   
@@ -89,4 +89,6 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `cronjob -l`
   
-  For more info on cronjobs: https://en.wikipedia.org/wiki/Cron
+  For more info on cronjobs:
+  
+  https://en.wikipedia.org/wiki/Cron
