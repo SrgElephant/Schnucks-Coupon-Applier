@@ -1,6 +1,6 @@
-# Version 1.91
+# Version 1.99
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
-ver = 1.91
+ver = 1.99
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
