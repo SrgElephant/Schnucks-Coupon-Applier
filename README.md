@@ -52,7 +52,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
   
-  In the folder with sca.py, open a terminal. Run
+  Download sca.py. In the folder with sca.py, open a terminal. Run
   
   `python3 sca.py`
   
