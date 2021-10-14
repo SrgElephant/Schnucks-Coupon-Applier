@@ -1,4 +1,4 @@
-# Version 1.91
+# Version 1.99
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
 from cryptography.fernet import Fernet
 
@@ -32,4 +32,4 @@ if sendEmails == "y" or sendEmails == "yes":
 f1 = open("cred.txt", "wb")
 f1.write(fernet.encrypt(credentialsStr.encode()))
 f1.close()
-print("Credentials complete.")
+print("Credentials complete. Run scaCredentials.py again to fix any typos.")
