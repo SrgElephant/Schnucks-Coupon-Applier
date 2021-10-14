@@ -1,4 +1,4 @@
-# Version 1.99
+# Version 2.0
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
 ver = 1.99
 from selenium import webdriver
