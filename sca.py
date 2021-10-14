@@ -10,6 +10,7 @@ import time, sys, smtplib
 # Read key
 f0 = open("key.txt","rb")
 key = f0.read()
+f0.close()
 fernet = Fernet(key)
 
 # Read credentials
