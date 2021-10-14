@@ -26,17 +26,26 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   `sudo apt install python3-venv python3-pip`
   
-  `pip3 install selenium`
+  `pip install selenium && pip install webdriver-manager`
   
-  `pip3 install webdriver-manager`
+  Update all python packages:
+  
+  `pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U`
   
   To install pip for other operating systems:
   https://packaging.python.org/guides/installing-using-linux-tools/
   
-  More info on the webdriver-manager:
+  More info on the Selenium and webdriver-manager:
+  
+  https://www.selenium.dev/
+  
   https://pypi.org/project/webdriver-manager/
   
-  Download scaCredentials.py and type in the credentials. These will be encrypted to a text file.
+  Download scaCredentials.py. Open the erminal where the file is located, and type
+  
+  `python3 scaCredentials.py`
+  
+  Type in the credentials. These will be encrypted to a text file. If a typo is made, just run the file again.
   
   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
   
