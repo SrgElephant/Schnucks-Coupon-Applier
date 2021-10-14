@@ -1,4 +1,5 @@
 # Version 1.91
+# https://github.com/SrgElephant/Schnucks-Coupon-Applier
 ver = 1.91
 from selenium import webdriver
 from selenium.webdriver import FirefoxOptions
@@ -14,10 +15,10 @@ fernet = Fernet(key)
 # Read credentials
 f1 = open("cred.txt","rb")
 lines = f1.read()
+f1.close()
 lines = fernet.decrypt(lines)
 lines = lines.decode()
 listLines = lines.split('\n')
-f1.close()
 
 SchnucksAcctEmail    = listLines[0]
 SchnucksAcctPassword = listLines[1]
