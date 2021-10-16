@@ -52,7 +52,9 @@ def get_coupon_total(driver):
 def send_email(send_success_email=False):
     # body contents
     if send_success_email:
-        body = headerStr + beforeStr + valueBeforeClicking + appliedStr + numOfUnclippedCoupons + afterStr + valueAfterClicking
+        body = headerStr + beforeStr + valueBeforeClicking + appliedStr
+	       + numOfUnclippedCoupons + afterStr + valueAfterClicking + footnoteStr
+
     else:
         body = headerStr + errorStr + footnoteStr
 
