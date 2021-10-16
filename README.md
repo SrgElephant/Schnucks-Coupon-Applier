@@ -44,7 +44,9 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   ## Initial Run
   
-  Download scaCredentials.py. Open the terminal where the file is located, and type
+  Make a new folder called SCA for holding both scaCredentials.py and sca.py. Download both files.
+  
+  Open the terminal in SCA - where the both files are located, and type
   
   `python3 scaCredentials.py`
   
@@ -52,7 +54,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
   
-  Download sca.py. In the folder with sca.py, open a terminal. Run
+  Now in the terminal, type
   
   `python3 sca.py`
   
