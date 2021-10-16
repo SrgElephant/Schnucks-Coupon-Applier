@@ -1,6 +1,6 @@
 # Schnucks-Coupon-Applier
 
-  This program automates applying all of the digital coupons to a Schnucks account. Includes opening the web browser, logging in, clipping coupons, and optionally sending an email with the updated coupon value or login errors.
+  This program automates applying all of the digital coupons to a Schnucks account. Includes encrypting credentials, opening the web browser, logging in, clipping coupons, then optionally sending an email with the updated coupon value or login errors.
   
   <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/unclipped.png" width="300" height="600">
   
@@ -46,7 +46,7 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   Make a new folder called SCA for holding both scaCredentials.py and sca.py. Download both files.
   
-  Open the terminal in SCA - where the both files are located, and type
+  Open the terminal in SCA - where scaCredentials.py and sca.py are located, then type
   
   `python3 scaCredentials.py`
   
