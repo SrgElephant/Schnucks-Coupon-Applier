@@ -12,7 +12,7 @@
 * Initial Run
 * CronJob Setup
   
-Alternatively, manually visiting the website would be launching the terminal and running
+Alternatively, manually visiting the website would be launching the browser terminal and running
   
   `let btns = document.querySelectorAll(".schnucks-red-bg");`
   
@@ -46,11 +46,11 @@ Alternatively, manually visiting the website would be launching the terminal and
   
   Make a new folder called SCA for holding both scaCredentials.py and sca.py. Download both files.
   
-  Open the terminal in SCA - where scaCredentials.py and sca.py are located, then type
+  Open the terminal in SCA, where scaCredentials.py and sca.py are located, then type
   
   `python3 scaCredentials.py`
   
-  Type in the credentials. These will be encrypted to a text file. If a typo is made, just run the file again.
+  Type in the credentials. These will be encrypted to a text file. If a typo is made, just run the command again.
   
   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
   
