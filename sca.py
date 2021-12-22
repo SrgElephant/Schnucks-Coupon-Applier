@@ -1,4 +1,4 @@
-# Version 2.0
+# Version 2.1
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
 ver = 2.0
 from selenium import webdriver
@@ -87,9 +87,9 @@ driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2
 time.sleep(5);
 
 # Insert Schnucks credentials
-driver.find_element_by_id('logonId').send_keys(SchnucksAcctEmail)
+driver.find_element_by_id('username').send_keys(SchnucksAcctEmail)
 driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
-driver.find_element_by_class_name('login-button').click()
+driver.find_element_by_class_name('cd1df0865.c0b512bff.c6cad41d5.c132a5a03.c571d5ab7').click()
 
 # Wait for the page to load
 time.sleep(5);
