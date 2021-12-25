@@ -90,7 +90,7 @@ Alternatively, manually visiting the website would be launching the browser term
   
   To view cronjobs, run
   
-  `cronjob -l`
+  `crontab -l`
   
   For more info on cronjobs:
   
