@@ -24,9 +24,9 @@ Alternatively, manually visiting the website would be launching the browser term
   
   `sudo apt update`
   
-  `sudo apt install python3-venv python3-pip`
+  `sudo apt install -y python3-venv python3-pip`
   
-  `pip install selenium && pip install webdriver-manager`
+  `pip install -y selenium && pip install -y webdriver-manager`
   
   Update all python packages:
   
