@@ -92,6 +92,26 @@ Alternatively, manually visiting the website would be launching the browser term
   
   `crontab -l`
   
+  For WSL:
+  
+  `sudo visudo`
+  
+  add to the bottom
+  
+  `%sudo ALL=NOPASSWD: /usr/sbin/service cron start`
+  
+  Go to
+  
+  C:\Users\{user}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+  
+  Create a shortcut
+  
+  `C:\Windows\System32\wsl.exe sudo /usr/sbin/service cron start`
+  
+  Reboot and check
+  
+  `service cron status`
+  
   For more info on cronjobs:
   
   https://en.wikipedia.org/wiki/Cron
