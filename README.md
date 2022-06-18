@@ -44,7 +44,7 @@ Alternatively, manually visiting the website would be launching the browser term
   https://pypi.org/project/webdriver-manager/
   
   ## Chrome Install
-  Skip if you already have chrome installed. Run two commands:
+  Skip if you already have Chrome installed. Run two commands:
   
   `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
   
@@ -93,6 +93,10 @@ Alternatively, manually visiting the website would be launching the browser term
   __/home/{user}/Documents/SCA__
   
   with the location of the script. In this example, the sca.py script is located in {user}'s SCA folder.
+  
+  Open the folder, click "Open in Terminal" and use
+  
+  `pwd` to see the path.
   
   Save the cronjob edit.
   
