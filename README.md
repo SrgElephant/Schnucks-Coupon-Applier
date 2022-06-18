@@ -62,6 +62,8 @@ Alternatively, manually visiting the website would be launching the browser term
   
   Note: If using Gmail, https://myaccount.google.com/lesssecureapps must be on for the sender. OAuth is not currently implemented.
   
+  Go to https://github.com/settings/tokens and create a token for the webdriver. Paste it in.
+  
   Now in the terminal, type
   
   `python3 sca.py`
