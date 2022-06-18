@@ -6,9 +6,10 @@
   
   <img src="https://github.com/SrgElephant/Schnucks-Coupon-Applier/blob/main/images/clipped.png" width="300" height="300">
   
-  Created in Ubuntu + Firefox. Parts to this project:
+  Created in Ubuntu + Chrome. Parts to this project:
   
 * Python Setup
+* Chrome Setup
 * Initial Run
 * CronJob Setup
   
@@ -41,6 +42,13 @@ Alternatively, manually visiting the website would be launching the browser term
   https://www.selenium.dev/
   
   https://pypi.org/project/webdriver-manager/
+  
+  ## Chrome Install
+  Skip if you already have chrome installed. Run two commands:
+  
+  `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+  
+  `sudo dpkg -i google-chrome-stable_current_amd64.deb`
   
   ## Initial Run
   
