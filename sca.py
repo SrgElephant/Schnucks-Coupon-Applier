@@ -1,11 +1,14 @@
-# Version 2.1
+# Version 2.2
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
-ver = 2.0
+ver = 2.2
 from selenium import webdriver
-from selenium.webdriver import FirefoxOptions
-from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from cryptography.fernet import Fernet
 import time, sys, smtplib
+import os
+
+os.environ['GH_TOKEN'] = "paste token here"
 
 # Read key
 f0 = open("key.txt","rb")
@@ -76,9 +79,7 @@ def send_email(send_success_email=False):
 
 
 # Start the program
-options = webdriver.FirefoxOptions()
-options.headless = True
-driver = webdriver.Firefox(options=options,executable_path=GeckoDriverManager().install())
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # Navigate to login page
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
@@ -89,7 +90,7 @@ time.sleep(5);
 # Insert Schnucks credentials
 driver.find_element_by_id('username').send_keys(SchnucksAcctEmail)
 driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
-driver.find_element_by_class_name('cd1df0865.c0b512bff.c6cad41d5.c132a5a03.c571d5ab7').click()
+driver.find_element_by_class_name('ce746f871.cd667ac0b.c9f131736.c70b8d645.ca29903fb').click()
 
 # Wait for the page to load
 time.sleep(5);
