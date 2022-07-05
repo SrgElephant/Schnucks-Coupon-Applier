@@ -1,8 +1,10 @@
-# Version 2.2
+# Version 2.3
 # https://github.com/SrgElephant/Schnucks-Coupon-Applier
-ver = 2.2
+ver = 2.3
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from cryptography.fernet import Fernet
 import time, sys, smtplib
@@ -49,7 +51,7 @@ footnoteStr = "\n\nhttps://github.com/SrgElephant/Schnucks-Coupon-Applier\n"
 def get_coupon_total(driver):
     driver.refresh()
     time.sleep(5)
-    return driver.find_element_by_css_selector("div.link-text").text;
+    return driver.find_element(By.CSS_SELECTOR, 'div.link-text').text;
 
 
 def send_email(send_success_email=False):
@@ -79,7 +81,9 @@ def send_email(send_success_email=False):
 
 
 # Start the program
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+opts = Options()
+opts.add_argument('--disable-gpu')
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=opts)
 
 # Navigate to login page
 driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2F%2Fnourish.schnucks.com%2F")
@@ -88,21 +92,23 @@ driver.get("https://nourish.schnucks.com/web-ext/user/login?redirectUrl=https:%2
 time.sleep(5);
 
 # Insert Schnucks credentials
-driver.find_element_by_id('username').send_keys(SchnucksAcctEmail)
-driver.find_element_by_id('password').send_keys(SchnucksAcctPassword)
-driver.find_element_by_class_name('ce746f871.cd667ac0b.c9f131736.c70b8d645.ca29903fb').click()
+driver.find_element(By.ID, 'username').send_keys(SchnucksAcctEmail)
+driver.find_element(By.ID, 'password').send_keys(SchnucksAcctPassword)
+driver.find_element(By.NAME, 'action').click()
 
 # Wait for the page to load
 time.sleep(5);
 
 # Types of errors
-errorLogin = driver.find_elements_by_class_name("login-error")
-errorEmail = driver.find_elements_by_class_name("schnucks-red")
-if len(errorLogin) + len(errorEmail) > 0:
-    send_email()
-    driver.close()
-    sys.exit()
-
+try:
+    errorLogin = driver.find_element(By.NAME, "login-error")
+    errorEmail = driver.find_element(By.NAME, "schnucks-red")
+    if len(errorLogin) + len(errorEmail) > 0:
+        send_email()
+        driver.close()
+        sys.exit()
+except:
+    print("login successful")
 # Navigate to the coupons page assuming no errors
 driver.get("https://nourish.schnucks.com/web-ext/coupons")
 
@@ -113,7 +119,7 @@ time.sleep(5);
 valueBeforeClicking = get_coupon_total(driver)
 
 # Find number of unclipped coupons
-unclippedCoupons = driver.find_elements_by_class_name('schnucks-red-bg')
+unclippedCoupons = driver.find_elements(By.CLASS_NAME, 'schnucks-red-bg')
 # '- 1' due to the hidden button
 numOfUnclippedCoupons = str(len(unclippedCoupons) - 1)
 
